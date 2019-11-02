@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <!--项目的组名-->
+    <groupId>com.imooc</groupId>
+    <!--项目名-->
+    <artifactId>product</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>product</name>
+    <!--注意，多模块项目的，最上层的父级项目，必须以pom形式打包-->
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Boot</description>
+
+    <!---设置父级模块下面的子模块-->
+    <modules>
+        <module>product-client</module>
+        <module>product-server</module>
+        <module>product-common</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <!--springBoot对应的SpringCloud的版本号,可以通过官网的Spring.io的project中的SpringCloud的中间页面去查找，SpringCloud的版本号是根据伦敦地铁站命名的-->
+        <!--升级版本号-->
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <product-common-version>0.0.1-SNAPSHOT</product-common-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--在项目的父级中指定common的版本-->
+            <dependency>
+                <groupId>com.imooc</groupId>
+                <artifactId>product-common</artifactId>
+                <version>${product-common-version}}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

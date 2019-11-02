@@ -1,0 +1,13 @@
+eureka:
+  client:
+    # 设置服务注册中心的地址
+    service-url:
+      # 将Client注册到两个Server上面
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+#    自定义服务的host地址的名称，将访问连接的ip：192.168.7.181地址改为clientName，可以随便起名
+#  instance:
+#    hostname: clientName
+spring:
+  application:
+    # 设置服务的名称
+    name: client
