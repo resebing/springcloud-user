@@ -3,7 +3,7 @@
 mvn clean package -Dmaven.test.skip=true -U
 
 # docker打包
-docker build -t registry.cn-hangzhou.aliyuncs.com/shoubi/springcloud:product .
+docker build -t registry.cn-hangzhou.aliyuncs.com/shoubi/product:latest .
 
 # docker push到阿里云镜像仓库
-docker push registry.cn-hangzhou.aliyuncs.com/shoubi/springcloud:product
+docker push registry.cn-hangzhou.aliyuncs.com/shoubi/product:latest
